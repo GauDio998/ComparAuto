@@ -74,35 +74,35 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Top section with newsletter */}
         <div className="mb-16 lg:flex lg:justify-between lg:items-start gap-10">
-          <div className="mb-10 lg:mb-0 lg:max-w-md">
-            <div className="flex items-center mb-4">
-              <div className="mr-3 relative">
-                <div className="absolute -inset-2 bg-gradient-to-br from-indigo-400/30 to-blue-400/30 rounded-full blur-md"></div>
-                <div className="relative bg-slate-900 rounded-full p-2.5 border border-indigo-500/30">
-                  <Car className="w-6 h-6 text-indigo-400" />
-                </div>
-              </div>
-              <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-blue-300">AutoCompare</h2>
-            </div>
-            <p className="text-slate-400 mb-6 leading-relaxed">
-              Il modo più semplice e intelligente per confrontare, analizzare e scegliere la tua prossima auto. 
-              Dati aggiornati e verificati per farti prendere la decisione giusta.
-            </p>
-            <div className="flex space-x-3">
-              <a href="#" className="p-2.5 rounded-full bg-slate-800/80 hover:bg-indigo-800/80 text-slate-400 hover:text-white transition-all duration-300 border border-slate-700/50 hover:border-indigo-500/50 shadow-sm">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="p-2.5 rounded-full bg-slate-800/80 hover:bg-blue-800/80 text-slate-400 hover:text-white transition-all duration-300 border border-slate-700/50 hover:border-blue-500/50 shadow-sm">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="p-2.5 rounded-full bg-slate-800/80 hover:bg-violet-800/80 text-slate-400 hover:text-white transition-all duration-300 border border-slate-700/50 hover:border-violet-500/50 shadow-sm">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="p-2.5 rounded-full bg-slate-800/80 hover:bg-blue-800/80 text-slate-400 hover:text-white transition-all duration-300 border border-slate-700/50 hover:border-blue-500/50 shadow-sm">
-                <Linkedin className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
+          <div className="mb-10 lg:mb-0 lg:max-w-md text-center lg:text-left">
+  <div className="flex items-center mb-4 justify-center lg:justify-start">
+    <div className="mr-3 relative">
+      <div className="absolute -inset-2 bg-gradient-to-br from-indigo-400/30 to-blue-400/30 rounded-full blur-md"></div>
+      <div className="relative bg-slate-900 rounded-full p-2.5 border border-indigo-500/30">
+        <Car className="w-6 h-6 text-indigo-400" />
+      </div>
+    </div>
+    <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-blue-300">AutoCompare</h2>
+  </div>
+  <p className="text-slate-400 mb-6 leading-relaxed">
+    Il modo più semplice e intelligente per confrontare, analizzare e scegliere la tua prossima auto. 
+    Dati aggiornati e verificati per farti prendere la decisione giusta.
+  </p>
+  <div className="flex space-x-3 justify-center lg:justify-start">
+    <a href="#" className="p-2.5 rounded-full bg-slate-800/80 hover:bg-indigo-800/80 text-slate-400 hover:text-white transition-all duration-300 border border-slate-700/50 hover:border-indigo-500/50 shadow-sm">
+      <Facebook className="w-5 h-5" />
+    </a>
+    <a href="#" className="p-2.5 rounded-full bg-slate-800/80 hover:bg-blue-800/80 text-slate-400 hover:text-white transition-all duration-300 border border-slate-700/50 hover:border-blue-500/50 shadow-sm">
+      <Twitter className="w-5 h-5" />
+    </a>
+    <a href="#" className="p-2.5 rounded-full bg-slate-800/80 hover:bg-violet-800/80 text-slate-400 hover:text-white transition-all duration-300 border border-slate-700/50 hover:border-violet-500/50 shadow-sm">
+      <Instagram className="w-5 h-5" />
+    </a>
+    <a href="#" className="p-2.5 rounded-full bg-slate-800/80 hover:bg-blue-800/80 text-slate-400 hover:text-white transition-all duration-300 border border-slate-700/50 hover:border-blue-500/50 shadow-sm">
+      <Linkedin className="w-5 h-5" />
+    </a>
+  </div>
+</div>
           
           <div className="lg:min-w-[24rem] bg-slate-800/30 backdrop-blur-sm p-7 rounded-2xl border border-slate-700/50 shadow-lg">
             <div className="flex items-center gap-2.5 mb-4">

@@ -624,12 +624,12 @@ const MagicBento: React.FC<MagicBentoProps> = ({
           
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-indigo-800 to-slate-900 dark:from-white dark:via-indigo-300 dark:to-white">
-              Dashboard Innovativa
+              News Sull'Automotive
             </span>
           </h2>
           
           <p className="text-xl text-slate-600 max-w-2xl mx-auto dark:text-slate-300">
-            Un'interfaccia completa per gestire tutti i tuoi confronti automobilistici
+            Scopri ne ultime novità provenienti dal mondo dell'automotive
             <span className="relative inline-block mx-1">
               <span className="absolute inset-x-0 bottom-0 h-1 bg-blue-200/70 -z-10 dark:bg-blue-800/50"></span>
               in un unico posto

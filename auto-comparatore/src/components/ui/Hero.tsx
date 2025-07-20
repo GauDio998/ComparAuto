@@ -84,7 +84,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="text-left"
+            className="text-center md:text-left"
           >
             <motion.span 
               initial={{ opacity: 0, y: -10 }}
@@ -131,7 +131,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="text-xl text-slate-600 mb-8 max-w-lg dark:text-slate-300"
+              className="text-xl text-slate-600 mb-8 max-w-lg mx-auto md:mx-0 dark:text-slate-300"
             >
               Confronta il modello di auto che hai scelto e scopri quanto potrebbe 
               <span className="relative inline-block mx-1">
@@ -145,7 +145,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-4 justify-center md:justify-start"
             >
               <Button 
                 size="lg" 
@@ -177,31 +177,33 @@ export default function Hero() {
             </motion.div>
             
             {/* Statistiche */}
-            <motion.div 
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="mt-12 flex flex-wrap gap-x-8 gap-y-4"
-            >
-              <motion.div variants={itemVariants} className="flex items-center gap-3">
-                <div className="bg-gradient-to-br from-indigo-100 to-indigo-50 p-2.5 rounded-lg shadow-sm border border-indigo-200/50 dark:from-indigo-900/40 dark:to-indigo-800/40 dark:border-indigo-700/50">
-                  <Car className="h-5 w-5 text-indigo-600 dark:text-indigo-300" />
-                </div>
-                <span className="text-sm font-medium text-slate-700 dark:text-slate-200">10K+ modelli disponibili</span>
+            <div className="mt-12 flex justify-center md:justify-start">
+              <motion.div 
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="flex flex-col md:flex-row flex-wrap gap-4 md:gap-x-8 md:gap-y-4"
+              >
+                <motion.div variants={itemVariants} className="flex items-center gap-3">
+                  <div className="bg-gradient-to-br from-indigo-100 to-indigo-50 p-2.5 rounded-lg shadow-sm border border-indigo-200/50 dark:from-indigo-900/40 dark:to-indigo-800/40 dark:border-indigo-700/50">
+                    <Car className="h-5 w-5 text-indigo-600 dark:text-indigo-300" />
+                  </div>
+                  <span className="text-sm font-medium text-slate-700 dark:text-slate-200">10K+ modelli disponibili</span>
+                </motion.div>
+                <motion.div variants={itemVariants} className="flex items-center gap-3">
+                  <div className="bg-gradient-to-br from-teal-100 to-teal-50 p-2.5 rounded-lg shadow-sm border border-teal-200/50 dark:from-teal-900/40 dark:to-teal-800/40 dark:border-teal-700/50">
+                    <Gauge className="h-5 w-5 text-teal-600 dark:text-teal-300" />
+                  </div>
+                  <span className="text-sm font-medium text-slate-700 dark:text-slate-200">Analisi in tempo reale</span>
+                </motion.div>
+                <motion.div variants={itemVariants} className="flex items-center gap-3">
+                  <div className="bg-gradient-to-br from-amber-100 to-amber-50 p-2.5 rounded-lg shadow-sm border border-amber-200/50 dark:from-amber-900/40 dark:to-amber-800/40 dark:border-amber-700/50">
+                    <Shield className="h-5 w-5 text-amber-600 dark:text-amber-300" />
+                  </div>
+                  <span className="text-sm font-medium text-slate-700 dark:text-slate-200">Dati verificati</span>
+                </motion.div>
               </motion.div>
-              <motion.div variants={itemVariants} className="flex items-center gap-3">
-                <div className="bg-gradient-to-br from-teal-100 to-teal-50 p-2.5 rounded-lg shadow-sm border border-teal-200/50 dark:from-teal-900/40 dark:to-teal-800/40 dark:border-teal-700/50">
-                  <Gauge className="h-5 w-5 text-teal-600 dark:text-teal-300" />
-                </div>
-                <span className="text-sm font-medium text-slate-700 dark:text-slate-200">Analisi in tempo reale</span>
-              </motion.div>
-              <motion.div variants={itemVariants} className="flex items-center gap-3">
-                <div className="bg-gradient-to-br from-amber-100 to-amber-50 p-2.5 rounded-lg shadow-sm border border-amber-200/50 dark:from-amber-900/40 dark:to-amber-800/40 dark:border-amber-700/50">
-                  <Shield className="h-5 w-5 text-amber-600 dark:text-amber-300" />
-                </div>
-                <span className="text-sm font-medium text-slate-700 dark:text-slate-200">Dati verificati</span>
-              </motion.div>
-            </motion.div>
+            </div>
           </motion.div>
           
           {/* Colonna destra con immagine/grafica */}
