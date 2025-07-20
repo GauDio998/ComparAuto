@@ -4,6 +4,7 @@
 import Hero from '@/components/ui/Hero';
 import Features from '@/components/ui/Features';
 //import Cta from '@/components/ui/Cta';
+import MagicBento from '@/components/ui/BlogSection';
 import Footer from '@/components/ui/Footer';
 
 export default function Home() {
@@ -17,6 +18,8 @@ export default function Home() {
       
       {/* CTA Section */}
       {/*<Cta /> */}
+
+      <MagicBento />
       
       {/* Footer */}
       <Footer />

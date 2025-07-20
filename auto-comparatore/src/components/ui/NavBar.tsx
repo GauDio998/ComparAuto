@@ -3,14 +3,15 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Home, Car, PieChart, Users, ChevronDown, SparklesIcon, Gauge } from 'lucide-react';
+import { Menu, X, Home, Car, Notebook, PieChart, Users, ChevronDown, SparklesIcon, Gauge } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const navItems = [
   { name: 'Home', href: '/', icon: Home },
+  { name: 'Blog', href: '/blog', icon: Notebook },
   { name: 'Auto', href: '/cars', icon: Car },
   { name: 'Confronto', href: '/compare', icon: PieChart },
-  { name: 'Chi Siamo', href: '/about', icon: Users },
+  // { name: 'Chi Siamo', href: '/about', icon: Users },
 ];
 
 export default function NavBar() {
