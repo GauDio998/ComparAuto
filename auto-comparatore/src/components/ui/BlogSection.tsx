@@ -8,7 +8,7 @@ import { gsap } from "gsap";
 // Costanti
 const DEFAULT_PARTICLE_COUNT = 12;
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
-const DEFAULT_GLOW_COLOR = "132, 0, 255";
+const DEFAULT_GLOW_COLOR = "79, 70, 229";
 const MOBILE_BREAKPOINT = 768;
 
 // Tipi
