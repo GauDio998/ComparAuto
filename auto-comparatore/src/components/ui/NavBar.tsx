@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Home, Car, Notebook, PieChart, Users, ChevronDown, SparklesIcon, Gauge } from 'lucide-react';
+import { Menu, X, Home, Car, Notebook, PieChart, Users, ChevronDown, SparklesIcon, Gauge, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const navItems = [
@@ -18,6 +18,7 @@ export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeItem, setActiveItem] = useState('Home');
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +27,33 @@ export default function NavBar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    // Controlla se c'è una preferenza salvata
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      setIsDark(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setIsDark(false);
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newDarkMode = !isDark;
+    setIsDark(newDarkMode);
+    
+    if (newDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  };
 
   // Varianti di animazione
   const containerAnimation = {
@@ -133,10 +161,47 @@ export default function NavBar() {
                   )}
                 </motion.div>
               ))}
-              <motion.div
-                variants={itemAnimation}
-              >
-                <Button className="bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 rounded-xl font-medium ml-2 shadow-md shadow-indigo-500/20 flex items-center gap-1.5 transform transition-all duration-300 hover:scale-105 dark:shadow-indigo-900/30">
+              
+              {/* Dark Mode Toggle */}
+              <motion.div variants={itemAnimation}>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={toggleDarkMode}
+                  className="relative rounded-xl p-2 ml-2 mr-2 transition-all duration-300 hover:bg-indigo-50 dark:hover:bg-indigo-950/40"
+                >
+                  <div className="relative w-5 h-5">
+                    <motion.div
+                      initial={false}
+                      animate={{
+                        scale: isDark ? 0 : 1,
+                        rotate: isDark ? 90 : 0,
+                      }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="absolute inset-0"
+                    >
+                      <Sun className="w-5 h-5 text-amber-500" />
+                    </motion.div>
+                    <motion.div
+                      initial={false}
+                      animate={{
+                        scale: isDark ? 1 : 0,
+                        rotate: isDark ? 0 : -90,
+                      }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="absolute inset-0"
+                    >
+                      <Moon className="w-5 h-5 text-indigo-400" />
+                    </motion.div>
+                  </div>
+                  <span className="sr-only">
+                    {isDark ? 'Attiva modalità chiara' : 'Attiva modalità scura'}
+                  </span>
+                </Button>
+              </motion.div>
+              
+              <motion.div variants={itemAnimation}>
+                <Button className="bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 rounded-xl font-medium shadow-md shadow-indigo-500/20 flex items-center gap-1.5 transform transition-all duration-300 hover:scale-105 dark:shadow-indigo-900/30">
                   <span className="relative">
                     <span className="absolute top-0 right-0 -mt-1.5 -mr-1.5">
                       <span className="flex h-2 w-2">
@@ -152,7 +217,40 @@ export default function NavBar() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Dark Mode Toggle Mobile */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleDarkMode}
+              className={`rounded-xl p-2 ${isScrolled ? 'text-slate-700 hover:bg-indigo-50 dark:text-slate-300 dark:hover:bg-indigo-950/40' : 'text-slate-700 hover:bg-white/30 dark:text-slate-300 dark:hover:bg-slate-800/30'}`}
+            >
+              <div className="relative w-5 h-5">
+                <motion.div
+                  initial={false}
+                  animate={{
+                    scale: isDark ? 0 : 1,
+                    rotate: isDark ? 90 : 0,
+                  }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="absolute inset-0"
+                >
+                  <Sun className="w-5 h-5 text-amber-500" />
+                </motion.div>
+                <motion.div
+                  initial={false}
+                  animate={{
+                    scale: isDark ? 1 : 0,
+                    rotate: isDark ? 0 : -90,
+                  }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="absolute inset-0"
+                >
+                  <Moon className="w-5 h-5 text-indigo-400" />
+                </motion.div>
+              </div>
+            </Button>
+            
             <Button
               variant="ghost"
               size="icon"
